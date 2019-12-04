@@ -9,9 +9,9 @@
 
 ### Login & Logout
 
-- [ ] Add the provided Django authentication views to the project's URLconf.
-- [ ] Test `/accounts/login` in your browser --- see if you can log in using username `admin` and password `djangopony`.
-- [ ] In `base.html`, hide the `New Page` and `Log Out` buttons for unauthenticated users.
+- [x] Add the provided Django authentication views to the project's URLconf.
+- [x] Test `/accounts/login` in your browser --- see if you can log in using username `admin` and password `djangopony`.
+- [x] In `base.html`, hide the `New Page` and `Log Out` buttons for unauthenticated users.
 - [ ] When a user clicks `Log Out`, they are logged out of the system, and returned to the homepage.
 - [ ] When a user clicks `Log In`, they are navigated to the Login page.
 - [ ] Replace `Hello, USERNAME` text with the username of the logged-in user, and only show it when the user is logged in.
@@ -39,23 +39,23 @@
 
 #### `makewiki/urls.py`
 
-- [ ] Uncomment the `path()` for the `wiki` app below. Use it to direct any request (except `/admin` URLs) to the the `wiki` app's URL configuration. Use the above docstring to guide you if you feel stuck.
-- [ ] Make sure Django doesn't give you any warnings or errors when you execute `python manage.py runserver`.
+- [x] Uncomment the `path()` for the `wiki` app below. Use it to direct any request (except `/admin` URLs) to the the `wiki` app's URL configuration. Use the above docstring to guide you if you feel stuck.
+- [x] Make sure Django doesn't give you any warnings or errors when you execute `python manage.py runserver`.
 
 #### `wiki/views.py`
 
 `PageListView`:
 
-- [ ] On `GET`, display a homepage that shows all Pages in your wiki.
-- [ ]  Replace the CHALLENGE text with a descriptive docstring for `PageListView`.
-- [ ] Replace `pass` below with the code to render a template named `list.html`.
+- [x] On `GET`, display a homepage that shows all Pages in your wiki.
+- [x]  Replace the CHALLENGE text with a descriptive docstring for `PageListView`.
+- [x] Replace `pass` below with the code to render a template named `list.html`.
 
 #### `wiki/urls.py`
 
- - [ ] Refactor the URL named `wiki-list-page` and point it to the root route (`/`).
+ - [x] Refactor the URL named `wiki-list-page` and point it to the root route (`/`).
       - Make sure Django doesn't give you any warnings or errors when you execute `python manage.py runserver`.
       - Test by visiting http://127.0.0.1:8000/.
-- [ ] Refactor the URL named `wiki-details-page` to show the `DetailsView` for any `Page` that exists.
+- [x] Refactor the URL named `wiki-details-page` to show the `DetailsView` for any `Page` that exists.
       - Use the `slug` field in the `Page` model to accomplish this.
       - DO NOT CHANGE the `name` argument.
       - Test by visiting http://127.0.0.1:8000/title-slug in your browser.
