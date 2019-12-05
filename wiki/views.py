@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
+from django.contrib.auth.models import User
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from wiki.models import Page
+# from wiki.forms import PageForm
 
 
 class PageListView(ListView):
@@ -27,10 +31,33 @@ class PageDetailView(DetailView):
           'page': page
         })
 
-class PageCreateView(FormView):
 
-      def get(self, request, *args, **kwargs):
-        context = {
-          'form': PageForm()
-        }
-        return render(request, 'wiki/new.html', context)
+class PageCreateView(CreateView):
+      model = Page
+      fields = ['title', 'content', 'author']
+      success_url = reverse_lazy('wiki-list-page')
+
+
+
+
+# class PageCreateView(FormView):
+#     """ Renders a form page to create a new page."""
+#     template_name = 'new.html'
+#     form_class = PageForm
+#     success_url = '/'
+
+#     def post(self, request):
+#         if request.method == "GET":
+#             form = PageForm()
+#         else:
+#             form = PageForm(request.POST)
+#             if form.is_valid():
+#                 page = form.save(commit=False)
+#                 page.author = User.objects.get(id=request.POST['author'])
+#                 page.save()
+#                 return HttpResponseRedirect(reverse_lazy('new-page'))
+#             else:
+#                 return render(request, self.template_name, {'form': form})
+
+#     def form_vaild(self, form):
+#         return super().form_valid(form)
